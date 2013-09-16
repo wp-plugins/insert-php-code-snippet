@@ -1,0 +1,81 @@
+﻿=== Insert PHP Code Snippet ===
+Contributors: f1logic
+Donate link: http://xyzscripts.com/donate/
+
+Tags: insert PHP, add PHP, insert PHP code, insert PHP tag, insert PHP snippet, insert PHP code snippet , insert PHP snippet, add PHP code, insert PHP tag, add PHP snippet, add PHP code snippet, integrate PHP codes, raw PHP, embed PHP, PHP inserter, PHP code inserter, PHP snippet inserter
+Requires at least: 2.8
+Tested up to: 3.4.2
+Stable tag: 1.0
+License: GPLv2 or later
+
+Add PHP code to your pages and posts easily using shortcodes.
+
+== Description ==
+
+A quicklook into Insert PHP Code Snippet
+
+	★ Convert PHP snippets to shortcodes
+	★ Insert PHP code easily using shortcode
+	★ Support for PHP snippet shortcodes in widgets
+	★ Dropdown menu in TinyMCE editor to pick snippet shortcodes easily
+
+= Features in Detail =
+
+Insert PHP Code Snippet allows you to create shortcodes corresponding to PHP code snippets. You can create a shortcode corresponding to any random PHP code such as ad codes, login validation etc. and use the same in your posts, pages or widgets. 
+
+The shortcodes generated using the plugin are easily available as a dropdown in the standard wordpress content editor as well as in widget settings, thereby giving you ease of integrating your PHP snippets with your posts and pages.
+
+= About =
+
+Insert PHP Code Snippet is developed and maintained by [XYZScripts](http://xyzscripts.com/ "xyzscripts.com"). For any support, you may [contact us](http://xyzscripts.com/support/ "XYZScripts Support").
+
+== Installation ==
+
+1. Extract `insert-php-code-snippet.zip` to your `/wp-content/plugins/` directory.
+2. In the admin panel under plugins activate Insert PHP Code Snippet.
+
+If you need any further help, you may contact our [support desk](http://xyzscripts.com/support/ "XYZScripts Support").
+
+== Frequently Asked Questions ==
+
+= 1. The Insert PHP Code Snippet is not working properly. =
+
+Please check the wordpress version you are using. Make sure it meets the minimum version recommended by us. Make sure all files of the `insert php code snippet` plugin uploaded to the folder `wp-content/plugins/`
+
+= 2. I have 2 PHP shortcodes placed adjacently, but only one of them works. =
+
+Please use a whitespace to separate 2 shortcodes.
+
+More questions ? [Drop a mail](http://xyzscripts.com/members/support/ "XYZScripts Support") and we shall get back to you with the answers.
+
+
+== Screenshots ==
+
+1. This is the shortcode generator page
+2. This is page where you can manage all your snippets
+3. The shortcodes are easily accessible in the content editor
+
+
+== Changelog ==
+
+= 1.0 =
+* First official launch.
+
+== Upgrade Notice ==
+NA
+	
+== More Information ==
+
+
+= Troubleshooting =
+
+Please read the FAQ first if you are having problems.
+
+= Requirements =
+
+    WordPress 3.0+
+    PHP 5+ 
+
+= Feedback =
+
+We would like to receive your feedback and suggestions. You may submit them at our [support desk](http://xyzscripts.com/members/support/ "XYZScripts Support").
