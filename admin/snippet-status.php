@@ -14,7 +14,7 @@ if($xyz_ips_snippetId=="" || !is_numeric($xyz_ips_snippetId)){
 
 }
 
-$snippetCount = $wpdb->query( 'SELECT * FROM '.$wpdb->prefix.'xyz_ips_short_code WHERE id="'.$xyz_ips_snippetId.'" LIMIT 0,1' ) ;
+$snippetCount = $wpdb->query($wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'xyz_ips_short_code WHERE id=%d LIMIT 0,1' ,$xyz_ips_snippetId)) ;
 
 if($snippetCount==0){
 	header("Location:".admin_url('admin.php?page=insert-php-code-snippet-manage&xyz_ips_msg=2'));

@@ -4,8 +4,8 @@ Donate link: http://xyzscripts.com/donate/
 
 Tags: insert PHP, add PHP, insert PHP code, insert PHP tag, insert PHP snippet, insert PHP code snippet , insert PHP snippet, add PHP code, insert PHP tag, add PHP snippet, add PHP code snippet, integrate PHP codes, raw PHP, embed PHP, PHP inserter, PHP code inserter, PHP snippet inserter
 Requires at least: 2.8
-Tested up to: 3.4.2
-Stable tag: 1.0
+Tested up to: 3.9
+Stable tag: 1.1
 License: GPLv2 or later
 
 Add PHP code to your pages and posts easily using shortcodes.
@@ -29,7 +29,13 @@ The shortcodes generated using the plugin are easily available as a dropdown in 
 
 Insert PHP Code Snippet is developed and maintained by [XYZScripts](http://xyzscripts.com/ "xyzscripts.com"). For any support, you may [contact us](http://xyzscripts.com/support/ "XYZScripts Support").
 
+★ [Insert PHP Code Snippet User Guide](http://docs.xyzscripts.com/wordpress-plugins/insert-php-code-snippet/ "Insert PHP Code Snippet User Guide")
+★ [Insert PHP Code Snippet FAQ](http://kb.xyzscripts.com/wordpress-plugins/insert-php-code-snippet/ "Insert PHP Code Snippet FAQ")
+
 == Installation ==
+
+★ [Insert PHP Code Snippet User Guide](http://docs.xyzscripts.com/wordpress-plugins/insert-php-code-snippet/ "Insert PHP Code Snippet User Guide")
+★ [Insert PHP Code Snippet FAQ](http://kb.xyzscripts.com/wordpress-plugins/insert-php-code-snippet/ "Insert PHP Code Snippet FAQ")
 
 1. Extract `insert-php-code-snippet.zip` to your `/wp-content/plugins/` directory.
 2. In the admin panel under plugins activate Insert PHP Code Snippet.
@@ -37,6 +43,9 @@ Insert PHP Code Snippet is developed and maintained by [XYZScripts](http://xyzsc
 If you need any further help, you may contact our [support desk](http://xyzscripts.com/support/ "XYZScripts Support").
 
 == Frequently Asked Questions ==
+
+★ [Insert PHP Code Snippet User Guide](http://docs.xyzscripts.com/wordpress-plugins/insert-php-code-snippet/ "Insert PHP Code Snippet User Guide")
+★ [Insert PHP Code Snippet FAQ](http://kb.xyzscripts.com/wordpress-plugins/insert-php-code-snippet/ "Insert PHP Code Snippet FAQ")
 
 = 1. The Insert PHP Code Snippet is not working properly. =
 
@@ -58,14 +67,20 @@ More questions ? [Drop a mail](http://xyzscripts.com/members/support/ "XYZScript
 
 == Changelog ==
 
+= 1.1 =
+* Snippet chooser TinyMCE plugin modified
+* Compatibility with wordpress 3.9
+* A few bug fixes
 = 1.0 =
 * First official launch.
 
 == Upgrade Notice ==
-NA
+	
 	
 == More Information ==
 
+★ [Insert PHP Code Snippet User Guide](http://docs.xyzscripts.com/wordpress-plugins/insert-php-code-snippet/ "Insert PHP Code Snippet User Guide")
+★ [Insert PHP Code Snippet FAQ](http://kb.xyzscripts.com/wordpress-plugins/insert-php-code-snippet/ "Insert PHP Code Snippet FAQ")
 
 = Troubleshooting =
 

@@ -20,7 +20,6 @@ if(isset($_POST) && isset($_POST['addSubmit'])){
 	$xyz_ips_content = $_POST['snippetContent'];
 
 	if($xyz_ips_title != "" && $xyz_ips_content != ""){
-		
 		if(ctype_alnum($temp_xyz_ips_title)){
 		
 			$snippet_count = $wpdb->query( 'SELECT * FROM '.$wpdb->prefix.'xyz_ips_short_code WHERE title="'.$xyz_ips_title.'"' ) ;
@@ -39,7 +38,7 @@ if(isset($_POST) && isset($_POST['addSubmit'])){
 		}else{
 		?>
 		<div class="system_notice_area_style0" id="system_notice_area">
-		PHP Snippet title must be alphanumeric. &nbsp;&nbsp;&nbsp;<span id="system_notice_area_dismiss">Dismiss</span>
+		PHP Snippet title can have only alphabets,numbers or hyphen. &nbsp;&nbsp;&nbsp;<span id="system_notice_area_dismiss">Dismiss</span>
 		</div>
 		<?php
 		}

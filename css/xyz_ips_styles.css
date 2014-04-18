@@ -86,11 +86,11 @@ z-index:100000;
 	}
 
 
-		.xyz_suggest,.xyz_star,.xyz_donate,.xyz_fbook,.xyz_support,.xyz_twitt,.xyz_gplus{
+		.xyz_suggest,.xyz_star,.xyz_donate,.xyz_fbook,.xyz_support,.xyz_twitt,.xyz_gplus,.xyz_linkedin{
 	height:16px;
 	background-repeat: no-repeat;
 	background-position: left center;
-	padding-left: 15px;
+	padding-left: 20px;
 	text-decoration: none;
 	
 	vertical-align: middle;
@@ -129,10 +129,9 @@ z-index:100000;
 	
 	background-image: url('../images/gplus.png');
 }
-
-
-#insert-php-code-snippet .xyz_gplus{
-margin-left: 3px;
+.xyz_linkedin{
+	
+	background-image: url('../images/linkedin.png');
 }
 
 #insert-php-code-snippet .plugin-version-author-uri {
@@ -150,18 +149,26 @@ margin-left: 3px;
 	        box-shadow: 0 8px 6px -6px black;
 	        
 }
-#insert-php-code-snippet{
+#insert-php-code-snippet th,#insert-php-code-snippet td{
 background: #a9e8f5; /* Old browsers */
-
-background: -moz-linear-gradient(top,  #ffffff 0%, #a9e8f5 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#a9e8f5)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  #ffffff 0%,#a9e8f5 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  #ffffff 0%,#a9e8f5 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  #ffffff 0%,#a9e8f5 100%); /* IE10+ */
-background: linear-gradient(top,  #ffffff 0%,#a9e8f5 100%); /* W3C */
+background: linear-gradient( #ffffff,#a9e8f5 ); /* W3C */
 
 
 }
+
+#insert-php-code-snippet .plugin-version-author-uri a#xyz_update,
+#insert-php-code-snippet.plugin-version-author-uri a#xyz_update:link,
+#insert-php-code-snippet .plugin-version-author-uri a#xyz_update:hover,
+#insert-php-code-snippet .plugin-version-author-uri a#xyz_update:active,
+#insert-php-code-snippet .plugin-version-author-uri a#xyz_update:visited
+{
+color: red;
+font-weight: bold;
+text-decoration: blink;
+}
+
+
+
 #insert-php-code-snippet .plugin-version-author-uri a,
 #insert-php-code-snippet .plugin-version-author-uri a:link,
 #insert-php-code-snippet .plugin-version-author-uri a:hover,
@@ -179,7 +186,7 @@ color:#cc811a;
 }
 #insert-php-code-snippet .plugin-title{
 
-background-image: url('../images/xyz_logo.png');
+background: url('../images/xyz_logo.png'),linear-gradient( #ffffff,#a9e8f5 );
 background-repeat: no-repeat;
 background-position: left  bottom;
 
@@ -207,13 +214,14 @@ background-position: left  bottom;
 }
 
  .xyz_our_plugins{
-    background: #F2F2F2; /* Old browsers */
+   background: #F2F2F2; /* Old browsers */
 	border: 1px solid #DFDFDF;
 	border-radius:3px;
 	width: 98%;    
     padding-left: 10px;
     padding-top:10px;
-	height:30px;
+	height:auto;
+    min-height: 40px;
     margin-top:13px;
     }
     
@@ -260,3 +268,6 @@ background-position: left  bottom;
     padding:0;
     }
     
+i.xyz-ips-own-icon {
+	background-image: url('../images/logo.png');
+}

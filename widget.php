@@ -21,14 +21,17 @@ class Xyz_Insert_Php_Widget extends WP_Widget {
         $title 		= apply_filters('widget_title', $instance['title']);
        	$xyz_ips_id = $instance['message'];
 
-       	$entries = $wpdb->get_results( "SELECT content FROM ".$wpdb->prefix."xyz_ips_short_code  WHERE id='$xyz_ips_id'" );
+       	$entries = $wpdb->get_results($wpdb->prepare( "SELECT content FROM ".$wpdb->prefix."xyz_ips_short_code  WHERE id=%d",$xyz_ips_id ));
         
         $entry = $entries[0];
 
         echo $before_widget;
         if ( $title )
         echo $before_title . $title . $after_title;
-		eval($entry->content);
+		$content_to_eval=$entry->content;
+		if(substr($content_to_eval, 0,5)=='<?php')
+			$content_to_eval='?>'.$content_to_eval;
+		eval($content_to_eval);
 							
         echo $after_widget;
         
@@ -45,7 +48,7 @@ class Xyz_Insert_Php_Widget extends WP_Widget {
     /** @see WP_Widget::form -- do not rename this */
     function form($instance) {	
     	global $wpdb;
-    	$entries = $wpdb->get_results( "SELECT * FROM ".$wpdb->prefix."xyz_ips_short_code WHERE status='1'  ORDER BY id DESC" );
+    	$entries = $wpdb->get_results($wpdb->prepare( "SELECT * FROM ".$wpdb->prefix."xyz_ips_short_code WHERE status=%d  ORDER BY id DESC",1 ));
     	
     	
     	if(isset($instance['title'])){

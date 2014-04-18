@@ -7,11 +7,49 @@
 		$shortcodesXYZEP = new XYZ_Insert_Php_TinyMCESelector();
 	
 	global $wpdb;
-// 	$ordered_sct = array_keys($shortcode_tags);
-// 	sort($ordered_sct);
 
-	$ordered_sct = $wpdb->get_results( "SELECT * FROM ".$wpdb->prefix."xyz_ips_short_code WHERE status='1'  ORDER BY id DESC" );
+
+$xyz_snippets_arr=$wpdb->get_results($wpdb->prepare( "SELECT id,title FROM ".$wpdb->prefix."xyz_ips_short_code WHERE status=%d  ORDER BY id DESC",1),ARRAY_A );
+// 		print_r($xyz_snippets_arr);
+if(count($xyz_snippets_arr)==0)
+die;
+
+if(floatval(get_bloginfo('version'))>=3.9)
+{
 ?>
+(function() {
+
+ tinymce.PluginManager.add('<?php echo $shortcodesXYZEP->buttonName; ?>', function( editor, url ) {
+        editor.addButton( '<?php echo $shortcodesXYZEP->buttonName; ?>', {
+            title: 'Insert PHP Code Snippet',
+            type: 'menubutton',
+            icon: 'icon xyz-ips-own-icon',
+            menu: [
+<?php foreach ($xyz_snippets_arr as $key=>$val) { ?>            
+            	{
+            		text: '<?php echo addslashes($val['title']); ?>',
+            		value: '[xyz-ips snippet="<?php echo addslashes($val['title']); ?>"]',
+            		onclick: function() {
+            			editor.insertContent(this.value());
+            		}
+           		},
+<?php } ?>           		
+           ]
+        });
+    });
+
+})();
+<?php } else { 
+
+	$xyz_snippets = array(
+                'title'   =>'Insert PHP Code Snippet',
+				'url'	=> plugins_url('insert-php-code-snippet/images/logo.png'),
+                'xyz_ips_snippets' => $xyz_snippets_arr
+            );
+	?>
+
+var tinymce_<?php echo $shortcodesXYZEP->buttonName; ?> =<?php echo json_encode($xyz_snippets) ?>;
+
 
 (function() {
 	//******* Load plugin specific language pack
@@ -26,6 +64,12 @@
 		 * @param {string} url Absolute URL to where the plugin is located.
 		 */
 		init : function(ed, url) {
+
+         tinymce_<?php echo $shortcodesXYZEP->buttonName; ?>.insert = function(){
+                if(this.v && this.v != ''){
+                tinymce.execCommand('mceInsertContent', false, '[xyz-ips snippet="'+tinymce_<?php echo $shortcodesXYZEP->buttonName; ?>.xyz_ips_snippets[this.v]['title']+'"]');
+				}
+            };
 			
 		},
 
@@ -41,27 +85,28 @@
 		 */
 		createControl : function(n, cm) {
 			if(n=='<?php echo $shortcodesXYZEP->buttonName; ?>'){
-                var mlb = cm.createListBox('<?php echo $shortcodesXYZEP->buttonName; ?>List', {
-                     title : 'PHP Snippets',
-                     onselect : function(v) { //Option value as parameter
-                     if(v != ''){
-	                     	if(tinyMCE.activeEditor.selection.getContent() != ''){
-	                         	tinyMCE.activeEditor.selection.setContent('[' + v + ']' + tinyMCE.activeEditor.selection.getContent() + '[/' + v + ']');
-	                        }
-	                        else{
-	                        	tinyMCE.activeEditor.selection.setContent('[' + v + ']');
-	                        }
-                        }
-                     }
+                var c = cm.createSplitButton('<?php echo $shortcodesXYZEP->buttonName; ?>', {
+                     title : tinymce_<?php echo $shortcodesXYZEP->buttonName; ?>.title,
+					 image :  tinymce_<?php echo $shortcodesXYZEP->buttonName; ?>.url,
+                     onclick : tinymce_<?php echo $shortcodesXYZEP->buttonName; ?>.insert
                 });
 
                 // Add some values to the list box
-                <?php foreach($ordered_sct as $sct):?>
-                	mlb.add('<?php echo $sct->title;?>', '<?php echo 'xyz-ips snippet="'.$sct->title.'"';?>');
-				<?php endforeach;?>
+              
+
+				c.onRenderMenu.add(function(c, m){
+		                 for (var id in tinymce_<?php echo $shortcodesXYZEP->buttonName; ?>.xyz_ips_snippets){
+                            m.add({
+                                v : id,
+                                title : tinymce_<?php echo $shortcodesXYZEP->buttonName; ?>.xyz_ips_snippets[id]['title'],
+                                onclick : tinymce_<?php echo $shortcodesXYZEP->buttonName; ?>.insert
+                            });
+                        }
+                    });
+
 
                 // Return the new listbox instance
-                return mlb;
+                return c;
              }
              
              return null;
@@ -73,3 +118,5 @@
 	// Register plugin
 	tinymce.PluginManager.add('<?php echo $shortcodesXYZEP->buttonName; ?>', tinymce.plugins.<?php echo $shortcodesXYZEP->buttonName; ?>);
 })();
+
+<?php } ?>

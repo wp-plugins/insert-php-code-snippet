@@ -24,7 +24,7 @@ if(isset($_POST) && isset($_POST['updateSubmit'])){
 		
 		if(ctype_alnum($temp_xyz_ips_title))
 		{
-		$snippet_count = $wpdb->query( 'SELECT * FROM '.$wpdb->prefix.'xyz_ips_short_code WHERE id!="'.$xyz_ips_snippetId.'" AND title="'.$xyz_ips_title.'" LIMIT 0,1' ) ;
+		$snippet_count = $wpdb->query($wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'xyz_ips_short_code WHERE id!=%d AND title=%s LIMIT 0,1',$xyz_ips_snippetId,$xyz_ips_title)) ;
 		
 		if($snippet_count == 0){
 			$xyz_shortCode = '[xyz-ips snippet="'.$xyz_ips_title.'"]';
@@ -46,7 +46,7 @@ if(isset($_POST) && isset($_POST['updateSubmit'])){
 		{
 			?>
 		<div class="system_notice_area_style0" id="system_notice_area">
-		PHP Snippet title must be alphanumeric. &nbsp;&nbsp;&nbsp;<span id="system_notice_area_dismiss">Dismiss</span>
+		PHP Snippet title can have only alphabets,numbers or hyphen. &nbsp;&nbsp;&nbsp;<span id="system_notice_area_dismiss">Dismiss</span>
 		</div>
 		<?php
 		
@@ -67,7 +67,7 @@ if(isset($_POST) && isset($_POST['updateSubmit'])){
 global $wpdb;
 
 
-$snippetDetails = $wpdb->get_results( 'SELECT * FROM '.$wpdb->prefix.'xyz_ips_short_code WHERE id="'.$xyz_ips_snippetId.'" LIMIT 0,1' ) ;
+$snippetDetails = $wpdb->get_results($wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'xyz_ips_short_code WHERE id=%d LIMIT 0,1',$xyz_ips_snippetId )) ;
 $snippetDetails = $snippetDetails[0];
 
 ?>

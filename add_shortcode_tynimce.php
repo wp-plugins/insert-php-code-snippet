@@ -24,9 +24,7 @@ class XYZ_Insert_Php_TinyMCESelector{
 	}
 	
 	function registerTmcePlugin($plugin_array){
-		
 		$plugin_array[$this->buttonName] =get_site_url() . '/index.php?wp_ips=editor_plugin_js';
-		
 		if ( get_user_option('rich_editing') == 'true') 
 		 	//var_dump($plugin_array);
 		return $plugin_array;
@@ -40,3 +38,4 @@ if(!isset($shortcodesXYZEP)){
 	add_action('admin_head', array($shortcodesXYZEP, 'addSelector'));
 }
 
+?>
