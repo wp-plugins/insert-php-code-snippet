@@ -4,7 +4,7 @@ Donate link: http://xyzscripts.com/donate/
 
 Tags: insert PHP, add PHP, insert PHP code, insert PHP tag, insert PHP snippet, insert PHP code snippet , insert PHP snippet, add PHP code, insert PHP tag, add PHP snippet, add PHP code snippet, integrate PHP codes, raw PHP, embed PHP, PHP inserter, PHP code inserter, PHP snippet inserter
 Requires at least: 2.8
-Tested up to: 3.9
+Tested up to: 4.0
 Stable tag: 1.1
 License: GPLv2 or later
 
