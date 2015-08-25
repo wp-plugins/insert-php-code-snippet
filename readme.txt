@@ -4,8 +4,8 @@ Donate link: http://xyzscripts.com/donate/
 
 Tags: insert PHP, add PHP, insert PHP code, insert PHP tag, insert PHP snippet, insert PHP code snippet , insert PHP snippet, add PHP code, insert PHP tag, add PHP snippet, add PHP code snippet, integrate PHP codes, raw PHP, embed PHP, PHP inserter, PHP code inserter, PHP snippet inserter
 Requires at least: 2.8
-Tested up to: 4.0
-Stable tag: 1.1
+Tested up to: 4.3
+Stable tag: 1.2
 License: GPLv2 or later
 
 Add PHP code to your pages and posts easily using shortcodes.
@@ -66,6 +66,11 @@ More questions ? [Drop a mail](http://xyzscripts.com/members/support/ "XYZScript
 
 
 == Changelog ==
+
+= 1.2 =
+* Compatibility with wordpress 4.3
+* Added options to sort snippets in admin area by id and title
+* Removed redirection after snippet edit
 
 = 1.1 =
 * Snippet chooser TinyMCE plugin modified

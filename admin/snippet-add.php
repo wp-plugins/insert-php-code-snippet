@@ -22,7 +22,7 @@ if(isset($_POST) && isset($_POST['addSubmit'])){
 	if($xyz_ips_title != "" && $xyz_ips_content != ""){
 		if(ctype_alnum($temp_xyz_ips_title)){
 		
-			$snippet_count = $wpdb->query( 'SELECT * FROM '.$wpdb->prefix.'xyz_ips_short_code WHERE title="'.$xyz_ips_title.'"' ) ;
+			$snippet_count = $wpdb->query($wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'xyz_ips_short_code WHERE title=%s',$xyz_ips_title) ) ;
 			if($snippet_count == 0){
 				$xyz_shortCode = '[xyz-ips snippet="'.$xyz_ips_title.'"]';
 				$wpdb->insert($wpdb->prefix.'xyz_ips_short_code', array('title' =>$xyz_ips_title,'content'=>$xyz_ips_content,'short_code'=>$xyz_shortCode,'status'=>'1'),array('%s','%s','%s','%d'));

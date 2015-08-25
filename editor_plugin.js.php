@@ -1,5 +1,5 @@
 <?php 
-	
+header( 'Content-Type: text/javascript' );	
 	if ( ! is_user_logged_in() )
 		die('You must be logged in to access this script.');
 	

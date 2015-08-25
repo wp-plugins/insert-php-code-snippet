@@ -11,7 +11,7 @@ class Xyz_Insert_Php_Widget extends WP_Widget {
  
     /** constructor -- name this the same as the class above */
     function Xyz_Insert_Php_Widget() {
-        parent::WP_Widget(false, $name = 'Insert PHP Snippet');	
+        parent::__construct(false, $name = 'Insert PHP Snippet');	
     }
  
     /** @see WP_Widget::widget -- do not rename this */

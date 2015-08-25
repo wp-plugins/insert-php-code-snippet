@@ -23,7 +23,8 @@ function xyz_ips_network_uninstall($networkwide) {
 function xyz_ips_uninstall(){
 
 global $wpdb;
-
+delete_option("xyz_ips_sort_order");
+delete_option("xyz_ips_sort_field_name");
 delete_option("xyz_ips_limit");
 
 /* table delete*/

@@ -70,9 +70,14 @@ id="system_notice_area_dismiss">Dismiss</span>
 			$pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
 			$limit = get_option('xyz_ips_limit');			
 			$offset = ( $pagenum - 1 ) * $limit;
+
+
+			$field=get_option('xyz_ips_sort_field_name');
+			$order=get_option('xyz_ips_sort_order');
 			
-			
-			$entries = $wpdb->get_results( "SELECT * FROM ".$wpdb->prefix."xyz_ips_short_code  ORDER BY id DESC LIMIT $offset,$limit" );
+		$entries = $wpdb->get_results( "SELECT * FROM ".$wpdb->prefix."xyz_ips_short_code  ORDER BY  $field $order LIMIT $offset,$limit" );
+
+
 			
 			?>
 			<input  id="submit_ips"

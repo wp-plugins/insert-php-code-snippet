@@ -26,6 +26,19 @@ function xyz_ips_install(){
 	global $wpdb;
 	//global $current_user; get_currentuserinfo();
 	
+
+	if(get_option('xyz_ips_sort_order')=='')
+	{
+		add_option('xyz_ips_sort_order','desc');
+	}
+	if(get_option('xyz_ips_sort_field_name')=='')
+	{
+		add_option('xyz_ips_sort_field_name','id');
+	}
+	
+	
+	
+	
 	
 	if(get_option('xyz_credit_link') == "")
 	{

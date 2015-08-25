@@ -13,11 +13,18 @@ if($_POST){
 		if($xyz_ips_limit==0)$xyz_ips_limit=20;
 		
 		$xyz_ips_credit = $_POST['xyz_ips_credit'];
-		
+
+			$xyz_ips_sortfield=$_POST['xyz_ips_sort_by_field'];
+			$xyz_ips_sortorder=$_POST['xyz_ips_sort_by_order'];
 		
 		update_option('xyz_ips_limit',$xyz_ips_limit);
 		update_option('xyz_credit_link',$xyz_ips_credit);
-	
+
+
+			update_option('xyz_ips_sort_field_name',$xyz_ips_sortfield);
+			update_option('xyz_ips_sort_order',$xyz_ips_sortorder);
+
+		
 	?>
 	
 	<div class="system_notice_area_style1" id="system_notice_area">
@@ -37,7 +44,25 @@ if($_POST){
 	<fieldset style=" width:100%; border:1px solid #F7F7F7; padding:10px 0px 15px 10px;">
 	<legend ><h3>Settings</h3></legend>
 	<table class="widefat"  style="width:99%;">
-						<tr valign="top">
+	
+			<tr valign="top">	
+	<td scope="row" ><label for="xyz_ihs_sort">Sorting of snippets</label>
+				</td>
+	
+
+<td>
+		<select id="xyz_ips_sort_by_field" name="xyz_ips_sort_by_field"  >
+			<option value="id" <?php if(isset($_POST['xyz_ips_sort_by_field']) && $_POST['xyz_ips_sort_by_field']=='id'){echo 'selected';} else if(get_option('xyz_ips_sort_field_name')=="id"){echo 'selected';} ?>>Based on create time</option>
+			<option value="title" <?php if(isset($_POST['xyz_ips_sort_by_field']) && $_POST['xyz_ips_sort_by_field']=='title'){ echo 'selected';}else if(get_option('xyz_ips_sort_field_name')=="title"){echo 'selected';} ?>>Based on name</option>
+		</select>&nbsp;
+		<select id="xyz_ips_sort_by_order" name="xyz_ips_sort_by_order"  >
+			<option value="desc" <?php if(isset($_POST['xyz_ips_sort_by_order']) && $_POST['xyz_ips_sort_by_order']=='desc'){echo 'selected';} else if(get_option('xyz_ips_sort_order')=="desc"){echo 'selected';} ?>>Descending</option>
+			<option value="asc" <?php if(isset($_POST['xyz_ips_sort_by_order']) && $_POST['xyz_ips_sort_by_order']=='asc'){ echo 'selected';}else if(get_option('xyz_ips_sort_order')=="asc"){echo 'selected';} ?>>Ascending</option>
+		</select>
+		
+	</td>
+</tr>
+	<tr valign="top">
 				<td scope="row" ><label for="xyz_ips_credit">Credit link to author</label>
 				</td>
 				<td><select name="xyz_ips_credit" id="xyz_ips_credit">

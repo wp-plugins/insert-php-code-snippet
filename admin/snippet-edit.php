@@ -6,6 +6,21 @@ get_currentuserinfo();
 
 $xyz_ips_snippetId = $_GET['snippetId'];
 
+$xyz_ips_message='';
+if(isset($_GET['xyz_ips_msg'])){
+	$xyz_ips_message = $_GET['xyz_ips_msg'];
+}
+if($xyz_ips_message == 1){
+
+	?>
+<div class="system_notice_area_style1" id="system_notice_area">
+PHP Snippet updated successfully. &nbsp;&nbsp;&nbsp;<span id="system_notice_area_dismiss">Dismiss</span>
+</div>
+	
+<?php 
+
+
+}
 if(isset($_POST) && isset($_POST['updateSubmit'])){
 
 // 		echo '<pre>';
@@ -19,7 +34,7 @@ if(isset($_POST) && isset($_POST['updateSubmit'])){
 	$temp_xyz_ips_title = str_replace('-', '', $temp_xyz_ips_title);
 	$xyz_ips_title = str_replace(' ', '-', $_POST['snippetTitle']);
 	$xyz_ips_content = $_POST['snippetContent'];
-
+	
 	if($xyz_ips_title != "" && $xyz_ips_content != ""){
 		
 		if(ctype_alnum($temp_xyz_ips_title))
@@ -31,8 +46,10 @@ if(isset($_POST) && isset($_POST['updateSubmit'])){
 			
 			$wpdb->update($wpdb->prefix.'xyz_ips_short_code', array('title'=>$xyz_ips_title,'content'=>$xyz_ips_content,'short_code'=>$xyz_shortCode,), array('id'=>$xyz_ips_snippetId));
 			
-			header("Location:".admin_url('admin.php?page=insert-php-code-snippet-manage&msg=5'));
-	
+			header("Location:".admin_url('admin.php?page=insert-php-code-snippet-manage&action=snippet-edit&snippetId='.$xyz_ips_snippetId.'&xyz_ips_msg=1'));
+			
+			
+			
 		}else{
 			?>
 			<div class="system_notice_area_style0" id="system_notice_area">
